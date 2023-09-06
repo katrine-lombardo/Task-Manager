@@ -34,7 +34,5 @@ def create_project(request):
             return redirect("list_projects")
     else:
         form = ProjectForm()
-    context = {
-        "form": form
-    }
+    context = {"form": form}
     return render(request, "projects/create_project.html", context)
