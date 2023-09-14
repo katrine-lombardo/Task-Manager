@@ -18,10 +18,10 @@ class Task(admin.ModelAdmin):
 
 @admin.register(Note)
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('name', 'body', 'task', 'created_on',)
-    list_filter = ('created_on',)
-    search_fields = ('name', 'body',)
-    actions = ['approve_notes']
-
-    def approve_notes(self, request, queryset):
-        queryset.update(active=True)
+    list_display = [
+        "task",
+        "name",
+        "body",
+        "created_on",
+        "active",
+    ]

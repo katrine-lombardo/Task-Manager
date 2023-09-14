@@ -23,9 +23,19 @@
         </div>
         {% endfor %}
 
-        {% include "tasks/create_note.html" %}
+        <div class="task-form">
+            <h1>Create a new note</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Create</button>
+            </form>
+        </div>
+
         {% endwith %}
-        <a href="{% url "show_my_tasks" %}">Go back to my task list</a>
+        <p>
+            <a href="{% url "show_my_tasks" %}">Go back to my task list</a>
+        </p>
     </div>
 </main>
 {% endblock content %}

@@ -6,13 +6,25 @@
 
 {% block content %}
 <div class="task-form">
-    {% if note %}
-        <h2>Your note has been submitted for review.</h2>
-        <p>
-            <a href="{{ task_detail }}">Back to the task</a>
-        </p>
-    {% else %}
-        {% include "tasks/create_note" %}
-    {% endif %}
+    <button onclick="showPopup()">Show Popup</button>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="popup-container" id="popup">
+        <p>Thank you, Your note is under review</p>
+        <button onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function hidePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
 </div>
 {% endblock content %}
