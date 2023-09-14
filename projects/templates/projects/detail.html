@@ -6,7 +6,7 @@
 
 {% block content %}
 <main>
-    <div>
+    <div class="project-detail">
         <h1>{{ detail.name }}</h1>
         <p>{{ detail.description }}</p>
         <h2>Tasks</h2>
@@ -25,7 +25,9 @@
                 <tbody>
                     {% for task in detail.tasks.all %}
                         <tr>
-                            <td>{{ task.name }}</td>
+                            <td>
+                                <a href="{% url "task_detail" task.id %}">{{ task.name }}</a>
+                            </td>
                             <td>{{ task.assignee }}</td>
                             <td>{{ task.start_date }}</td>
                             <td>{{ task.due_date }}</td>

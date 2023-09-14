@@ -4,6 +4,17 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+class Company(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Companies"
+
+
 class Project(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
@@ -12,6 +23,12 @@ class Project(models.Model):
         related_name="projects",
         on_delete=models.CASCADE,
         null=True,
+    )
+    company = models.ForeignKey(
+        Company,
+        related_name="projects",
+        on_delete=models.CASCADE,
+        null=True
     )
 
     def __str__(self):

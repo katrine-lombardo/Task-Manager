@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add a note
+{% endblock title %}
+
+{% block content %}
+<div class="task-form">
+    {% if note %}
+        <h2>Your note has been submitted for review.</h2>
+        <p>
+            <a href="{{ task_detail }}">Back to the task</a>
+        </p>
+    {% else %}
+        {% include "tasks/create_note" %}
+    {% endif %}
+</div>
+{% endblock content %}

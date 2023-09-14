@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Task Notes
+{% endblock title %}
+
+{% block content %}
+<main>
+    <div class="project-detail">
+        <h1>{{ task_detail.name }}</h1>
+
+        {% with notes.count as total_notes %}
+        <h2>
+            {{ total_notes }} note{{ total_notes|pluralize }}
+        </h2>
+
+        {% for note in notes %}
+        <div>
+            <p>
+                Note {{ forloop.counter }} by {{ note.name }} on {{ note.created_on }}
+            </p>
+            {{ note.body|linebreaks }}
+        </div>
+        {% endfor %}
+
+        {% include "tasks/create_note.html" %}
+        {% endwith %}
+        <a href="{% url "show_my_tasks" %}">Go back to my task list</a>
+    </div>
+</main>
+{% endblock content %}
