@@ -20,9 +20,15 @@
                     {% for task in show_my_tasks %}
                         <tr>
                             <td><a href="{% url "task_detail" task.id %}">{{ task.name }}</a></td>
-                            <td>{{ task.start_date }}</td>
-                            <td>{{ task.due_date }}</td>
-                            <td>{{ task.is_completed|yesno:"yes,no" }}</td>
+                            <td>{{ task.start_date|date:'D, M jS' }}</td>
+                            <td>{{ task.due_date|date:'D, M jS' }}</td>
+                            <td>
+                                <form method="POST" class="center-form">
+                                    {% csrf_token %}
+                                    <input type="checkbox" name="is_completed" id="" {% if task.is_completed %}checked{% endif %} onclick="this.form.submit()">
+                                    <input type="number" value={{ task.id }} name="id" hidden>
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -20,3 +20,13 @@ class NoteForm(ModelForm):
         fields = (
             "body",
         )
+
+
+# class CheckboxForm(ModelForm):
+#     class Meta:
+#         model = Task
+#         fields = ['is_completed', 'id']
+#         widgets = {
+#             'id': forms.HiddenInput(),
+#             'is_completed': forms.CheckboxInput(attrs={'onclick': 'this.form.submit()'}),
+#         }

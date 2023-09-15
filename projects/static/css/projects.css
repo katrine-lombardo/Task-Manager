@@ -185,30 +185,45 @@ table {
   border-bottom: 1px solid #DEDEDE;
 }
 
+/* ---------------- CHECKBOXES ---------------- */
 
-
-/* Styles for the popup container */
-.popup-container {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  z-index: 1000;
+input[type='checkbox']:checked {
+  background-color: #023047;
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  border: #023047;
+  border-radius: 20%;
+  font-size: 10px;
 }
 
-/* Styles for the overlay background */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+input[type='checkbox']:checked:after {
+  content: '\2713';
+  color:white;
+  font-size: 12px;
+  padding: 0px;
+  padding-top: 5px;
+  border-radius: 20%;
+  vertical-align: middle;
+}
+
+input[type='checkbox'] {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 20px !important;
+  height: 20px !important;
+  appearance: none;
+  border-radius: 20%;
+  border: 1px solid lightslategray;
+  box-shadow: none;
+  font-size: 1em;
+}
+
+.center-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  margin: 0;
 }
